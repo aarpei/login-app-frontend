@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./colors.scss";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.main-wrapper {
+  background-color: $color-light-yellow;
+  color: $color-orange;
+}
+
+.main-header {
+  height: 15%;
+}
+
+.main-content {
+  height: 85%;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  /*   border: 0.2rem solid $color-orange; */
+  padding: 0.5rem;
+  /*   border-radius: 1rem; */
+}

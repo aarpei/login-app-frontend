@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <mat-menu>
+    <button mat-icon-button aria-label="icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-menu>
+
+  <button mat-button>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <button mat-icon-button aria-label="icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/login">
+          {{ "menu.login" | translate }}
+        </button>
+        <button mat-menu-item routerLink="/sign-up">
+          {{ "menu.sign_up" | translate }}
+        </button>
+        <button mat-menu-item routerLink="/user">
+          {{ "menu.user" | translate }}
+        </button>
+      </mat-menu>
+    </button>
+  </button>
+</mat-toolbar>

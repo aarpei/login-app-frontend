@@ -1,0 +1,31 @@
+<div class="sign-up-wrapper">
+  <p class="form-title">{{ "sign_up.title" | translate }}</p>
+  <form [formGroup]="formGroup" (ngSubmit)="signUp()">
+    <app-input
+      [inputModel]="nameInputModel"
+      class="row"
+      ngDefaultControl
+    ></app-input>
+    <app-input
+      [inputModel]="surnameInputModel"
+      class="row"
+      ngDefaultControl
+    ></app-input>
+    <app-input
+      [inputModel]="emailInputModel"
+      class="row"
+      ngDefaultControl
+    ></app-input>
+    <app-input
+      [inputModel]="passwordInputModel"
+      class="row"
+      ngDefaultControl
+    ></app-input>
+    <app-button
+      text="{{ 'button.sign_up' | translate }}"
+      [form]="formGroup"
+      type="submit"
+      class="row"
+    ></app-button>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+@import "../../../../colors.scss";
+
+::ng-deep {
+  .mat-stroked-button {
+    border: none !important;
+  }
+}
+
+button {
+  background-color: $color-yellow;
+  border: 0.2rem solid $color-light-orange !important;
+  border-radius: 1rem;
+  margin-top: 1rem;
+}
+.mat-button-disabled {
+  background-color: $color-light-gray !important;
+  color: $color-dark-gray !important;
+  border-color: $color-gray !important;
+}

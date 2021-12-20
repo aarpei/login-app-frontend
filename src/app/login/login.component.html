@@ -1,0 +1,21 @@
+<div class="login-wrapper">
+  <p class="form-title">{{ "login.title" | translate }}</p>
+  <form [formGroup]="formGroup" (ngSubmit)="login()">
+    <app-input
+      [inputModel]="emailInputModel"
+      class="row"
+      ngDefaultControl
+    ></app-input>
+    <app-input
+      [inputModel]="passwordInputModel"
+      class="row"
+      ngDefaultControl
+    ></app-input>
+    <app-button
+      text="{{ 'button.login' | translate }}"
+      [form]="formGroup"
+      type="submit"
+      class="row"
+    ></app-button>
+  </form>
+</div>

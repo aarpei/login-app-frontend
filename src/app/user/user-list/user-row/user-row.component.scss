@@ -1,0 +1,17 @@
+.col {
+  padding: 0.5rem;
+  min-width: 25%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+app-selector {
+  float: right;
+}

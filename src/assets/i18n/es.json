@@ -1,0 +1,58 @@
+{
+  "login": {
+    "title": "Login"
+  },
+  "sign_up": {
+    "title": "Registrarse"
+  },
+  "button": {
+    "login": "Login",
+    "sign_up": "Registrarse"
+  },
+  "input": {
+    "label": {
+      "email": "Correo eléctronico",
+      "password": "Contraseña",
+      "name": "Nombre",
+      "surname": "Apellido"
+    },
+    "placeholder": {
+      "email": "Introduce tu correo eléctronico",
+      "password": "Introduce tu contraseña",
+      "name": "Introduce tu nombre",
+      "surname": "Introduce tu apellido"
+    }
+  },
+  "error": {
+    "database": {
+      "generic": "[ERROR]: error al realizar la acción ${action} para ${type}",
+      "propertie": "[ERROR]: error al realizar la acción ${action} para ${type} con ${propertie_name} ${propertie_value}",
+      "type": {
+        "user": "USER"
+      },
+      "action": {
+        "create": "CREATE",
+        "delete": "DELETE",
+        "get": "GET",
+        "update": "UPDATE"
+      }
+    }
+  },
+  "success": {
+    "database": {
+      "generic": {
+        "user": "El usuario ha sido {{action}} con éxito!"
+      },
+      "action": {
+        "created": "creado",
+        "delete": "eliminado",
+        "update": "actulizado"
+      }
+    }
+  },
+  "menu": {
+    "login": "Login",
+    "sign_up": "Registrarse",
+    "user": "Usuarios"
+  }
+}

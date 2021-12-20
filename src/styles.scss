@@ -35,7 +35,23 @@ body {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
-  /*   border: 0.2rem solid $color-orange; */
   padding: 0.5rem;
-  /*   border-radius: 1rem; */
+}
+
+/* SNACKBAR */
+.warning-snackbar {
+  background: $color-yellow;
+  color: $color-white;
+}
+.success-snackbar {
+  background: $color-green;
+  color: $color-white;
+}
+.error-snackbar {
+  background: $color-red;
+  color: $color-white;
+}
+
+.col {
+  padding: 0;
 }

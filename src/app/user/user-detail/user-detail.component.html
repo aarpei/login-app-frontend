@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col">name</div>
+    <div class="col">{{ (user | async)?.name }}</div>
+  </div>
+  <div class="row">
+    <div class="col">surname</div>
+    <div class="col">{{ (user | async)?.surname }}</div>
+  </div>
+  <div class="row">
+    <div class="col">email</div>
+    <div class="col">{{ (user | async)?.email }}</div>
+  </div>
+  <div class="row">
+    <div class="col">password</div>
+    <!-- REWORK PASSWORD -->
+    <div class="col"></div>
+  </div>
+</div>

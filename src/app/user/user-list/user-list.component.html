@@ -1,4 +1,15 @@
-<!-- <div class="container overflow-auto" *ngIf="userList.length > 0">
-  <app-user-row *ngFor="let user of userList" [user]="user"></app-user-row>
+<div class="container overflow-auto">
+  <div class="row user-list--header">
+    <div class="col">{{ "user_list.header.name" | translate | uppercase }}</div>
+    <div class="col">
+      {{ "user_list.header.surname" | translate | uppercase }}
+    </div>
+    <div class="col">
+      {{ "user_list.header.email" | translate | uppercase }}
+    </div>
+  </div>
+  <app-user-row
+    *ngFor="let user of usersList | async"
+    [user]="user"
+  ></app-user-row>
 </div>
- -->

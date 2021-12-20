@@ -1,13 +1,26 @@
 {
-  "login": {
-    "title": "Login"
-  },
-  "sign_up": {
-    "title": "Registrarse"
-  },
   "button": {
     "login": "Login",
-    "sign_up": "Registrarse"
+    "sign_up": "Registrarse",
+    "go_to_login": "Volver al Login"
+  },
+  "error": {
+    "database": {
+      "generic": "[ERROR]: error al realizar la acción ${action} para ${type}",
+      "propertie": "[ERROR]: error al realizar la acción ${action} para ${type} con ${propertie_name} ${propertie_value}",
+      "type": {
+        "user": "USER"
+      },
+      "action": {
+        "create": "CREATE",
+        "delete": "DELETE",
+        "get": "GET",
+        "update": "UPDATE"
+      }
+    },
+    "login": {
+      "generic": "[ERROR]: error al intentar loguear el usuario"
+    }
   },
   "input": {
     "label": {
@@ -23,20 +36,22 @@
       "surname": "Introduce tu apellido"
     }
   },
-  "error": {
-    "database": {
-      "generic": "[ERROR]: error al realizar la acción ${action} para ${type}",
-      "propertie": "[ERROR]: error al realizar la acción ${action} para ${type} con ${propertie_name} ${propertie_value}",
-      "type": {
-        "user": "USER"
-      },
-      "action": {
-        "create": "CREATE",
-        "delete": "DELETE",
-        "get": "GET",
-        "update": "UPDATE"
-      }
-    }
+  "menu": {
+    "login": "Login",
+    "sign_up": "Registrarse",
+    "user": "Usuarios"
+  },
+  "login": {
+    "title": "Login"
+  },
+  "sign_up": {
+    "title": "Registrarse"
+  },
+  "page_not_found": {
+    "title": "Página no encontrada 404"
+  },
+  "logout": {
+    "title": "Has cerrado la sesión"
   },
   "success": {
     "database": {
@@ -50,9 +65,11 @@
       }
     }
   },
-  "menu": {
-    "login": "Login",
-    "sign_up": "Registrarse",
-    "user": "Usuarios"
+  "user_list": {
+    "header": {
+      "name": "name",
+      "surname": "surname",
+      "email": "email"
+    }
   }
 }

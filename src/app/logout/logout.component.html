@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row w-100 d-block"><mat-icon>exit_to_app</mat-icon></div>
+  <div class="row logout">{{ "logout.title" | translate }}</div>
+  <app-button
+    text="{{ 'button.go_to_login' | translate }}"
+    type=""
+    class="row"
+    (click)="returnToLogin()"
+  ></app-button>
+</div>

@@ -67,11 +67,13 @@ export class SignUpComponent {
   public signUp(): void {
     let newUser: CreateUserDto = new CreateUserDto();
     newUser = { ...newUser, ...this.formGroup.getRawValue() };
-
     this.userService.create(newUser).subscribe((data) => {
       resetFrom(this.formGroup);
-      this.notificationService.showUserSuccessNotification(
-        'success.database.action.created'
+      this.notificationService.showCompossedSuccessNotification(
+        'success.database.generic.user',
+        {
+          action: 'success.database.action.created',
+        }
       );
     });
   }

@@ -4,6 +4,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  text-align: center;
 }
 .row {
   display: flex;
@@ -14,4 +15,9 @@
 }
 app-selector {
   float: right;
+}
+mat-card {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
 }

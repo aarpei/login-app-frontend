@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { AuthService } from '../auth/service/auth.service';
 import { InputModel } from '../shared/components/input/model/input.model';
 import { UserLoginDto } from '../shared/dtos/user-login.dto';
 import { InputType } from '../shared/enums/input-type.enum';
+import { NotificationsService } from '../shared/services/notifications.service';
+import { resetFrom, saveAccessToken } from '../shared/Utils';
 import { LoginService } from './login.service';
 
 @Component({
@@ -29,7 +34,12 @@ export class LoginComponent {
     formControl: this.passwordInputControl,
   };
 
-  constructor(private readonly loginService: LoginService) {
+  constructor(
+    private readonly loginService: LoginService,
+    private readonly notificationService: NotificationsService,
+    private readonly authService: AuthService,
+    private router: Router,
+  ) {
     this.formGroup = new FormGroup({
       email: this.emailInputControl,
       password: this.passwordInputControl,
@@ -38,8 +48,19 @@ export class LoginComponent {
 
   public login(): void {
     const loginUser: UserLoginDto = { ...this.formGroup.getRawValue() };
-    this.loginService.login(loginUser).subscribe((token) => {
-      console.log(token);
-    });
+    this.loginService.login(loginUser).subscribe(
+      (token) => {
+        let { accessToken } = token;
+        resetFrom(this.formGroup);
+        saveAccessToken(accessToken);
+        this.authService.accessToken = accessToken;
+        this.router.navigate([environment.url.components.users]);
+      },
+      (error) => {
+        this.notificationService.showCompossedErrorNotification(
+          'error.login.genric',
+        );
+      },
+    );
   }
 }

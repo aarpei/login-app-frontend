@@ -9,7 +9,7 @@ export const environment = {
       login: 'login',
       logout: 'logout',
       not_found: 'not-found',
-      users: 'user',
+      users: 'users',
       users_details: 'user/:id',
       sign_up: 'sign-up',
     },

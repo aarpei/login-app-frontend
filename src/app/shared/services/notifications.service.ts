@@ -25,16 +25,28 @@ export class NotificationsService {
 
   public showCompossedSuccessNotification(
     template: string,
-    variables?: Object,
+    variables?: any,
   ): void {
+    variables = variables ? this.translateVariables(variables) : null;
     const translation = this.translateService.instant(template, variables);
     this.showNotification(translation, snackBarClasses.SUCCESS_CLASS);
   }
   public showCompossedErrorNotification(
     template: string,
-    variables?: Object,
+    variables?: any,
   ): void {
+    variables = variables ? this.translateVariables(variables) : null;
     const translation = this.translateService.instant(template, variables);
     this.showNotification(translation, snackBarClasses.ERROR_CLASS);
+  }
+
+  private translateVariables(variables: any): any {
+    Object.keys(variables).forEach(
+      (propertie) =>
+        (variables[propertie] = this.translateService.instant(
+          variables[propertie],
+        )),
+    );
+    return variables;
   }
 }

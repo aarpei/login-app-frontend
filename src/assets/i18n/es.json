@@ -2,12 +2,13 @@
   "button": {
     "login": "Login",
     "sign_up": "Registrarse",
-    "go_to_login": "Volver al Login"
+    "go_to_login": "Volver al Login",
+    "update_user": "Actualizar usuario"
   },
   "error": {
     "database": {
-      "generic": "[ERROR]: error al realizar la acción ${action} para ${type}",
-      "propertie": "[ERROR]: error al realizar la acción ${action} para ${type} con ${propertie_name} ${propertie_value}",
+      "generic": "[ERROR]: error al realizar la acción {{action}} para {{type}}",
+      "propertie": "[ERROR]: error al realizar la acción {{action}} para {{type}} con {{propertie_name}} {{propertie_value}}",
       "type": {
         "user": "USER"
       },
@@ -51,7 +52,7 @@
     "title": "Página no encontrada 404"
   },
   "logout": {
-    "title": "Has cerrado la sesión"
+    "title": "Has cerrado la sesión o ha caducado"
   },
   "success": {
     "database": {

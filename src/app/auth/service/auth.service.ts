@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { recoverAccessToken, removeAccessToken } from '../../shared/Utils';
 
 @Injectable()
@@ -7,7 +8,6 @@ export class AuthService {
 
   public set accessToken(accessToken: string | undefined) {
     if (!accessToken) {
-      console.log('REMOVED');
       removeAccessToken();
     }
     this._accessToken = accessToken;
@@ -23,5 +23,9 @@ export class AuthService {
 
   public userIsLogged(): boolean {
     return this.accessToken !== undefined;
+  }
+
+  public userIsLoggedObs(): Observable<boolean> {
+    return new Observable().pipe(map((data) => this.accessToken !== undefined));
   }
 }

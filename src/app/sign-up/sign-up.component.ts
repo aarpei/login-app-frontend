@@ -30,7 +30,7 @@ export class SignUpComponent {
 
   constructor(
     private readonly userService: UserService<User>,
-    private readonly notificationService: NotificationsService
+    private readonly notificationService: NotificationsService,
   ) {
     this.formGroup = new FormGroup({
       email: this.emailInputControl,
@@ -67,14 +67,24 @@ export class SignUpComponent {
   public signUp(): void {
     let newUser: CreateUserDto = new CreateUserDto();
     newUser = { ...newUser, ...this.formGroup.getRawValue() };
-    this.userService.create(newUser).subscribe((data) => {
-      resetFrom(this.formGroup);
-      this.notificationService.showCompossedSuccessNotification(
-        'success.database.generic.user',
-        {
-          action: 'success.database.action.created',
-        }
-      );
-    });
+    this.userService.create(newUser).subscribe(
+      (data) => {
+        resetFrom(this.formGroup);
+        this.notificationService.showCompossedSuccessNotification(
+          'success.database.generic.user',
+          {
+            action: 'success.database.action.created',
+          },
+        );
+      },
+      (error) =>
+        this.notificationService.showCompossedErrorNotification(
+          'error.database.generic.user',
+          {
+            action: 'error.database.action.create',
+            type: 'error.database.type.user',
+          },
+        ),
+    );
   }
 }

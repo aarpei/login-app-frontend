@@ -1,4 +1,5 @@
 export class CrudException extends Error {
+  public status: string;
   public action: string;
   public type?: string;
   public propertieName?: string;
@@ -6,6 +7,7 @@ export class CrudException extends Error {
   public override message: string;
 
   constructor(
+    status: string,
     message: string,
     action: string,
     type?: string,
@@ -13,6 +15,7 @@ export class CrudException extends Error {
     propertieValue?: string,
   ) {
     super(message);
+    this.status = status;
     this.message = message;
     this.action = action;
     this.type = type;

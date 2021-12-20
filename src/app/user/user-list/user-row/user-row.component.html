@@ -2,4 +2,7 @@
   <div class="col">{{ user?.name }}</div>
   <div class="col">{{ user?.surname }}</div>
   <div class="col">{{ user?.email }}</div>
+  <div class="col" (click)="showUserDetail()">
+    <mat-icon>arrow_forward</mat-icon>
+  </div>
 </mat-card>

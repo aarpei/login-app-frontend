@@ -12,6 +12,7 @@ export class UserService<User> extends CrudService<User> {
 
   constructor(httpClient: HttpClient) {
     super(httpClient);
-    this.setApiCrudEndpoint(this.enviromentApi, this.usersEndpoint);
+    this.setErrorType('error.database.type.user');
+    this.setApiCrudEndpointUrl(this.enviromentApi, this.usersEndpoint);
   }
 }

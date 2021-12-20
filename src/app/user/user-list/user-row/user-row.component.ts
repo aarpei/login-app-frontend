@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GetUserDto } from 'src/app/shared/dtos/user-get.dto';
 
 @Component({
@@ -17,7 +17,14 @@ export class UserRowComponent {
   @Input() set user(user: GetUserDto) {
     this._user = user;
   }
+
+  @Output() userIdEmmiter: EventEmitter<string> = new EventEmitter<string>();
+
   get user(): any {
     return this._user;
+  }
+
+  public showUserDetail(): void {
+    this.userIdEmmiter.emit(this.user.id);
   }
 }

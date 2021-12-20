@@ -58,7 +58,7 @@ export class LoginComponent {
       },
       (error) => {
         this.notificationService.showCompossedErrorNotification(
-          'error.login.genric',
+          'error.login.generic',
         );
       },
     );

@@ -22,6 +22,9 @@ export const environment = {
   environment_api: {
     local: 'http://localhost:3000/',
   },
+  encoder: {
+    password: 'sistemas',
+  },
 };
 
 /*

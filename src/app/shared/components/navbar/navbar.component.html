@@ -11,14 +11,14 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/login">
-          {{ "menu.login" | translate }}
+        <button mat-menu-item routerLink="/login" *ngIf="!isLoggedUser()">
+          {{ 'menu.login' | translate }}
         </button>
-        <button mat-menu-item routerLink="/sign-up">
-          {{ "menu.sign_up" | translate }}
+        <button mat-menu-item routerLink="/sign-up" *ngIf="!isLoggedUser()">
+          {{ 'menu.sign_up' | translate }}
         </button>
-        <button mat-menu-item routerLink="/users">
-          {{ "menu.user" | translate }}
+        <button mat-menu-item routerLink="/users" *ngIf="isLoggedUser()">
+          {{ 'menu.user' | translate }}
         </button>
       </mat-menu>
     </button>

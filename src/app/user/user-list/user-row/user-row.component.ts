@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { GetUserDto } from 'src/app/shared/dtos/user-get.dto';
+import { GetUserDto } from 'src/app/shared/dtos/user/user-get.dto';
 
 @Component({
   selector: 'app-user-row',

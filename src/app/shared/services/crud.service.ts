@@ -26,7 +26,8 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
 
   /**
    * Get all entities of type T
-   * @return Observable of type T[]
+   * @return {Observable<T[]>}
+   * @throws {CrudException}
    *  */
   public findAll(): Observable<T[]> {
     return this.httpClient.get<T[]>(this.apiCrudEndpoint).pipe(
@@ -43,8 +44,9 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
 
   /**
    * Get the firt entity of type T with a propertie equals to sended propertie
-   * @param propertie Propertie for filter. Example: 'email:hello@world.com'
-   * @return Observable of type T
+   * @param {string} propertie Propertie for filter. Example: 'email:hello@world.com'
+   * @return {Observable<T>}
+   * @throws {CrudException}
    *  */
   public findByPropertie(propertie: string): Observable<T> {
     return this.httpClient.get<T>(`${this.apiCrudEndpoint}${propertie}`).pipe(
@@ -64,8 +66,9 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
 
   /**
    * Create an entity of type T
-   * @param newEntry Data for create a new entity
-   * @return Observable of type T
+   * @param {any} newEntry Data for create a new entity
+   * @return {Observable<T>}
+   * @throws {CrudException}
    * */
   public create(newEntry: any): Observable<T> {
     return this.httpClient.post<T>(this.apiCrudEndpoint, newEntry).pipe(
@@ -82,8 +85,9 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
 
   /**
    * Delete an entity of type T
-   * @param id Id of the entity to delete
-   * @return Observable of type T
+   * @param {number} id Id of the entity to delete
+   * @return {Observable<T>}
+   * @throws {CrudException}
    * */
   public delete(id: number): Observable<T> {
     return this.httpClient.delete<T>(`${this.apiCrudEndpoint}${id}`).pipe(
@@ -100,9 +104,10 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
 
   /**
    * Update an entity of type T
-   * @param id Id of the entity to update
-   * @param newEntry Data for update the entity
-   * @return Observable of type T
+   * @param {number} id Id of the entity to update
+   * @param {any} newEntry Data for update the entity
+   * @return {Observable<T>}
+   * @throws {CrudException}
    * */
   public update(id: number, updatedEntity: any): Observable<T> {
     return this.httpClient
@@ -121,8 +126,8 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
 
   /**
    * Sets the api endpoint url
-   * @param environmentApiUrl Api base url. Example: 'http://localhost:3000'
-   * @param crudEndopint Api endpoint url. Example: '/user'
+   * @param {string} environmentApiUrl Api base url. Example: 'http://localhost:3000'
+   * @param {string} crudEndopint Api endpoint url. Example: '/user'
    */
   public setApiCrudEndpointUrl(
     environmentApiUrl: string,
@@ -132,8 +137,8 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
   }
 
   /**
-   * Sets the error type translation string for compossed error messages
-   * @param errorType Error type translation string
+   * Sets the error entity type translation string for compossed error messages
+   * @param {string} errorType Error entity type translation string
    */
   public setErrorType(errorType: string): void {
     this.errorType = errorType;

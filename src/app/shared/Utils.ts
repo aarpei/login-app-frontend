@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 
 /**
  * Reset errors and content from all controls of a FormGroup
- * @param formGroup
+ * @param {FormGroup} formGroup
  */
 export const resetFrom = (formGroup: FormGroup) => {
   formGroup.reset();
@@ -16,7 +16,7 @@ export const resetFrom = (formGroup: FormGroup) => {
 
 /**
  * Recover accessToken from sessionStorage
- * @return accessToken from sessionStorage if exists
+ * @return {string} accessToken from sessionStorage if exists
  */
 export const recoverAccessToken = (): string | null => {
   return sessionStorage.getItem('accessToken');
@@ -24,7 +24,7 @@ export const recoverAccessToken = (): string | null => {
 
 /**
  * Save accessToken in sessionStorage
- * @param accessToken
+ * @param {string} accessToken
  */
 export const saveAccessToken = (accessToken: string): void => {
   sessionStorage.setItem('accessToken', accessToken);
@@ -39,8 +39,8 @@ export const removeAccessToken = (): void => {
 
 /**
  * Encrypt an string
- * @param password String to encrypt
- * @return String encrypted
+ * @param {string} password String to encrypt
+ * @return {string} String encrypted
  */
 export const encryptPassword = (password: string): string => {
   return CryptoJS.AES.encrypt(
@@ -51,8 +51,8 @@ export const encryptPassword = (password: string): string => {
 
 /**
  * Decrypt an string
- * @param password String to decrypted
- * @return String decrypted
+ * @param {string} password String to decrypted
+ * @return {string} String decrypted
  */
 export const decryptPassword = (password: string): string => {
   return CryptoJS.AES.decrypt(

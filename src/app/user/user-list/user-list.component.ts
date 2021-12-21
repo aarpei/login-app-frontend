@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { GetUserDto } from 'src/app/shared/dtos/user-get.dto';
+import { GetUserDto } from 'src/app/shared/dtos/user/user-get.dto';
 import { UserService } from '../user.service';
 
 @Component({

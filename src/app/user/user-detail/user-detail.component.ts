@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { InputModel } from 'src/app/shared/components/input/model/input.model';
-import { UpdateUserDto } from 'src/app/shared/dtos/user-update.dto';
+import { UpdateUserDto } from 'src/app/shared/dtos/user/user-update.dto';
 import { InputType } from 'src/app/shared/enums/input-type.enum';
 import { User } from 'src/app/shared/inteface/user.model';
 import { NotificationsService } from 'src/app/shared/services/notifications.service';

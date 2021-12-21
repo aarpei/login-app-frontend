@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/service/auth.service';
 import { InputModel } from '../shared/components/input/model/input.model';
-import { UserLoginDto } from '../shared/dtos/user-login.dto';
+import { UserLoginDto } from '../shared/dtos/user/user-login.dto';
 import { InputType } from '../shared/enums/input-type.enum';
 import { NotificationsService } from '../shared/services/notifications.service';
 import { resetFrom, saveAccessToken } from '../shared/Utils';

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { InputModel } from '../shared/components/input/model/input.model';
-import { CreateUserDto } from '../shared/dtos/user-create.dto';
+import { CreateUserDto } from '../shared/dtos/user/user-create.dto';
 import { InputType } from '../shared/enums/input-type.enum';
 import { User } from '../shared/inteface/user.model';
 import { NotificationsService } from '../shared/services/notifications.service';

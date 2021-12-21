@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { UserLoginDto } from '../shared/dtos/user-login.dto';
-import { AccessToken } from '../shared/inteface/access-token.model';
+import { AccessToken } from '../shared/dtos/auth/access-token.model';
+import { UserLoginDto } from '../shared/dtos/user/user-login.dto';
 @Injectable({
   providedIn: 'root',
 })

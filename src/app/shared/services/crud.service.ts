@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CrudServiceAbstract } from '../abstracts/crud.service.abstract';
 import { CrudException } from '../error/type/CrudException';
-import { decryptPassword, encryptPassword } from '../Utils';
 
 @Injectable({
   providedIn: 'root',
@@ -37,12 +36,6 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
 
   public findByPropertie(propertie: string): Observable<T> {
     return this.httpClient.get<T>(`${this.apiCrudEndpoint}${propertie}`).pipe(
-      map((value) => {
-        if ((value as any)?.password) {
-          (value as any).password = decryptPassword((value as any).password);
-        }
-        return value;
-      }),
       catchError((error) => {
         let splitedPropertie = propertie.split(':');
         throw new CrudException(
@@ -58,10 +51,6 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
   }
 
   public create(newEntry: any): Observable<T> {
-    if ((newEntry as any)?.password) {
-      (newEntry as any).password = encryptPassword((newEntry as any).password);
-    }
-
     return this.httpClient.post<T>(this.apiCrudEndpoint, newEntry).pipe(
       catchError((error) => {
         throw new CrudException(

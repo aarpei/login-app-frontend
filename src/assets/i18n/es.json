@@ -40,7 +40,8 @@
   "menu": {
     "login": "Login",
     "sign_up": "Registrarse",
-    "user": "Usuarios"
+    "user": "Usuarios",
+    "logout": "Logout"
   },
   "login": {
     "title": "Login"

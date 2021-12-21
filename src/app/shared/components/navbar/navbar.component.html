@@ -20,6 +20,9 @@
         <button mat-menu-item routerLink="/users" *ngIf="isLoggedUser()">
           {{ 'menu.user' | translate }}
         </button>
+        <button mat-menu-item routerLink="/logout" *ngIf="isLoggedUser()">
+          {{ 'menu.logout' | translate }}
+        </button>
       </mat-menu>
     </button>
   </button>

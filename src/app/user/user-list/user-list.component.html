@@ -1,17 +1,21 @@
 <div class="container overflow-auto">
   <div class="row user-list--header">
-    <div class="col">{{ 'user_list.header.name' | translate | uppercase }}</div>
-    <div class="col">
+    <div class="col-3">
+      {{ 'user_list.header.name' | translate | uppercase }}
+    </div>
+    <div class="col-3">
       {{ 'user_list.header.surname' | translate | uppercase }}
     </div>
-    <div class="col">
+    <div class="col-4">
       {{ 'user_list.header.email' | translate | uppercase }}
     </div>
-    <div class="col"></div>
+    <div class="col-1"></div>
+    <div class="col-1"></div>
   </div>
   <app-user-row
-    *ngFor="let user of usersList | async"
+    *ngFor="let user of usersList"
     [user]="user"
-    (userIdEmmiter)="showUserDetail($event)"
+    (showEmmiter)="showUserDetail($event)"
+    (deleteEmmiter)="deleteUser($event)"
   ></app-user-row>
 </div>

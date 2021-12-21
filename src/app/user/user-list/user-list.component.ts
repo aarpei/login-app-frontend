@@ -10,13 +10,29 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-list.component.scss'],
 })
 export class UserListComponent {
-  public usersList: Observable<GetUserDto[]> = this.userService.findAll();
+  public usersListObservable: Observable<GetUserDto[]> =
+    this.userService.findAll();
+  public usersList: GetUserDto[] = [];
+
   constructor(
     private readonly userService: UserService<GetUserDto>,
     private readonly router: Router,
-  ) {}
+  ) {
+    this.setUsersList();
+  }
 
   public showUserDetail(id: string): void {
     this.router.navigate(['user', id]);
+  }
+  public deleteUser(id: string): void {
+    this.userService
+      .delete(parseInt(id))
+      .subscribe((data) => this.setUsersList());
+  }
+
+  private setUsersList(): void {
+    this.usersListObservable.subscribe(
+      (usersList) => (this.usersList = usersList),
+    );
   }
 }

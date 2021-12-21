@@ -18,13 +18,18 @@ export class UserRowComponent {
     this._user = user;
   }
 
-  @Output() userIdEmmiter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() showEmmiter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() deleteEmmiter: EventEmitter<string> = new EventEmitter<string>();
 
   get user(): any {
     return this._user;
   }
 
   public showUserDetail(): void {
-    this.userIdEmmiter.emit(this.user.id);
+    this.showEmmiter.emit(this.user.id);
+  }
+  public deleteUser(): void {
+    console.log('DELETE');
+    this.deleteEmmiter.emit(this.user.id);
   }
 }

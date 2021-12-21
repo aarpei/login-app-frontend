@@ -4,12 +4,16 @@ import { environment } from 'src/environments/environment';
 import { CrudServiceAbstract } from '../abstracts/crud.service.abstract';
 import { CrudException } from '../error/type/CrudException';
 
+/**
+ * Generic service to implement crud functions
+ * @template T type of entity handled by service
+ */
 export class CrudService<T> implements CrudServiceAbstract<T> {
   private apiUrl: string = environment.url.api.base;
   private apiCrudEndpoint: string = '';
 
   /**
-   * Literales de las traducciones
+   * Error translation literals
    *  */
   private errorType: string = '';
   private errorGeneric: string = 'error.database.generic';
@@ -21,7 +25,8 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
   constructor(private readonly httpClient: HttpClient) {}
 
   /**
-   * Devuelve todas las entidades del tipo T
+   * Get all entities of type T
+   * @return Observable of type T[]
    *  */
   public findAll(): Observable<T[]> {
     return this.httpClient.get<T[]>(this.apiCrudEndpoint).pipe(
@@ -37,9 +42,10 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
   }
 
   /**
-   *  Devuelve una entidad de tipo T en función de la propiedad + valor (sepadarados por ':')
-   *  pasados en la URL.
-   * */
+   * Get the firt entity of type T with a propertie equals to sended propertie
+   * @param propertie Propertie for filter. Example: 'email:hello@world.com'
+   * @return Observable of type T
+   *  */
   public findByPropertie(propertie: string): Observable<T> {
     return this.httpClient.get<T>(`${this.apiCrudEndpoint}${propertie}`).pipe(
       catchError((error) => {
@@ -57,8 +63,10 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
   }
 
   /**
-   * Crea una nueva instancia de la entidad de tipo T y la almacena en la base de datos
-   */
+   * Create an entity of type T
+   * @param newEntry Data for create a new entity
+   * @return Observable of type T
+   * */
   public create(newEntry: any): Observable<T> {
     return this.httpClient.post<T>(this.apiCrudEndpoint, newEntry).pipe(
       catchError((error) => {
@@ -73,8 +81,10 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
   }
 
   /**
-   * Elimina una entidad de tipo T en base al id enviado en la URL
-   */
+   * Delete an entity of type T
+   * @param id Id of the entity to delete
+   * @return Observable of type T
+   * */
   public delete(id: number): Observable<T> {
     return this.httpClient.delete<T>(`${this.apiCrudEndpoint}${id}`).pipe(
       catchError((error) => {
@@ -89,8 +99,11 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
   }
 
   /**
-   * Actualiza una entidad de tipo T
-   */
+   * Update an entity of type T
+   * @param id Id of the entity to update
+   * @param newEntry Data for update the entity
+   * @return Observable of type T
+   * */
   public update(id: number, updatedEntity: any): Observable<T> {
     return this.httpClient
       .put<T>(`${this.apiCrudEndpoint}id:${id}`, updatedEntity)
@@ -107,8 +120,9 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
   }
 
   /**
-   * Compone el valor completo de la URL de la api a la
-   * que debe atacar el servicio
+   * Sets the api endpoint url
+   * @param environmentApiUrl Api base url. Example: 'http://localhost:3000'
+   * @param crudEndopint Api endpoint url. Example: '/user'
    */
   public setApiCrudEndpointUrl(
     environmentApiUrl: string,
@@ -118,7 +132,8 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
   }
 
   /**
-   * Literal de la traducción del tipo de la entidad
+   * Sets the error type translation string for compossed error messages
+   * @param errorType Error type translation string
    */
   public setErrorType(errorType: string): void {
     this.errorType = errorType;

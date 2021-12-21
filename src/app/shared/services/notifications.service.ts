@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+
+/**
+ * Class names for snackbars
+ * @enum
+ */
 enum snackBarClasses {
   ERROR_CLASS = 'error-snackbar',
   WARNING_CLASS = 'warning-snackbar',
@@ -10,12 +15,20 @@ enum snackBarClasses {
 @Injectable({
   providedIn: 'root',
 })
+/**
+ * Notify user actions completed or failed with snackbars
+ */
 export class NotificationsService {
   constructor(
     private snackBar: MatSnackBar,
     private readonly translateService: TranslateService,
   ) {}
 
+  /**
+   * Open snackbar with message and color passed throw params
+   * @param message Message to show
+   * @param snackBarClass Class for the snackbar
+   */
   private showNotification(message: string, snackBarClass: string): void {
     this.snackBar.open(message, '', {
       duration: 1500,
@@ -23,6 +36,11 @@ export class NotificationsService {
     });
   }
 
+  /**
+   * Translate compossed message and calls show notification with succes class
+   * @param template Message template
+   * @param variables Template vars to composs message
+   */
   public showCompossedSuccessNotification(
     template: string,
     variables?: any,
@@ -31,6 +49,12 @@ export class NotificationsService {
     const translation = this.translateService.instant(template, variables);
     this.showNotification(translation, snackBarClasses.SUCCESS_CLASS);
   }
+
+  /**
+   * Translate compossed message and calls show notification with error class
+   * @param template Message template
+   * @param variables Template vars to composs message
+   */
   public showCompossedErrorNotification(
     template: string,
     variables?: any,
@@ -40,6 +64,11 @@ export class NotificationsService {
     this.showNotification(translation, snackBarClasses.ERROR_CLASS);
   }
 
+  /**
+   * Translate all object variables
+   * @param variables Variables to translate
+   * @return Translated variables
+   */
   private translateVariables(variables: any): any {
     Object.keys(variables).forEach(
       (propertie) =>

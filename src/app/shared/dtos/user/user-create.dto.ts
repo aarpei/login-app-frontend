@@ -1,5 +1,4 @@
 import { User } from '../../inteface/user.model';
-
 /**
  * Class for represent data for create user
  * @class

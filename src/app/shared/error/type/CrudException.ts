@@ -6,6 +6,7 @@
  * @param {string} [type] Entity type translation string to composs message
  * @param {string} [propertieName] Propertie name to composs message
  * @param {string} [propertieValue] Propertie value to composs message
+ * @class
  */
 export class CrudException extends Error {
   public status: string;

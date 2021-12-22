@@ -5,6 +5,10 @@ import { environment } from 'src/environments/environment';
 import { NotificationsService } from '../../services/notifications.service';
 import { CrudException } from '../type/CrudException';
 
+/**
+ * Catch all errors and handles it depending ont its type
+ * @class
+ */
 @Injectable()
 export class GlobalExceptionHandler implements ErrorHandler {
   constructor(
@@ -13,6 +17,10 @@ export class GlobalExceptionHandler implements ErrorHandler {
     private readonly zone: NgZone,
   ) {}
 
+  /**
+   * Handles errors depending on its type
+   * @function
+   */
   handleError(error: any): void {
     if (error?.status === HttpStatusCode.Unauthorized) {
       this.zone.run(() =>

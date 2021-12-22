@@ -1,5 +1,5 @@
 /**
- * Class for represent an accessToken.
+ * Class for represent an accessToken
  * @class
  */
 export class AccessToken {

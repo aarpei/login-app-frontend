@@ -28,6 +28,7 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
    * Get all entities of type T
    * @return {Observable<T[]>}
    * @throws {CrudException}
+   * @function
    *  */
   public findAll(): Observable<T[]> {
     return this.httpClient.get<T[]>(this.apiCrudEndpoint).pipe(
@@ -47,6 +48,7 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
    * @param {string} propertie Propertie for filter. Example: 'email:hello@world.com'
    * @return {Observable<T>}
    * @throws {CrudException}
+   * @function
    *  */
   public findByPropertie(propertie: string): Observable<T> {
     return this.httpClient.get<T>(`${this.apiCrudEndpoint}${propertie}`).pipe(
@@ -69,6 +71,7 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
    * @param {any} newEntry Data for create a new entity
    * @return {Observable<T>}
    * @throws {CrudException}
+   * @function
    * */
   public create(newEntry: any): Observable<T> {
     return this.httpClient.post<T>(this.apiCrudEndpoint, newEntry).pipe(
@@ -88,6 +91,7 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
    * @param {number} id Id of the entity to delete
    * @return {Observable<T>}
    * @throws {CrudException}
+   * @function
    * */
   public delete(id: number): Observable<T> {
     return this.httpClient.delete<T>(`${this.apiCrudEndpoint}${id}`).pipe(
@@ -108,6 +112,7 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
    * @param {any} newEntry Data for update the entity
    * @return {Observable<T>}
    * @throws {CrudException}
+   * @function
    * */
   public update(id: number, updatedEntity: any): Observable<T> {
     return this.httpClient
@@ -128,6 +133,7 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
    * Sets the api endpoint url
    * @param {string} environmentApiUrl Api base url. Example: 'http://localhost:3000'
    * @param {string} crudEndopint Api endpoint url. Example: '/user'
+   * @function
    */
   public setApiCrudEndpointUrl(
     environmentApiUrl: string,
@@ -139,6 +145,7 @@ export class CrudService<T> implements CrudServiceAbstract<T> {
   /**
    * Sets the error entity type translation string for compossed error messages
    * @param {string} errorType Error entity type translation string
+   * @function
    */
   public setErrorType(errorType: string): void {
     this.errorType = errorType;

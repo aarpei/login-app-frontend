@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { catchError } from 'rxjs';
 import { InputModel } from 'src/app/shared/components/input/model/input.model';
 import { UpdateUserDto } from 'src/app/shared/dtos/user/user-update.dto';
 import { InputType } from 'src/app/shared/enums/input-type.enum';
@@ -60,16 +61,19 @@ export class UserDetailComponent {
   ) {
     this.route.params.subscribe((params) => {
       this.userId = params['id'];
-      this.userService.findByPropertie(`id:${this.userId}`).subscribe(
-        (user) => {
+      this.userService
+        .findByPropertie(`id:${this.userId}`)
+        .pipe(
+          catchError((error) => {
+            this.location.back();
+            throw new Error();
+          }),
+        )
+        .subscribe((user) => {
           this.user = user;
           this.originalUser = user;
           this.buildForm();
-        },
-        (error) => {
-          this.location.back();
-        },
-      );
+        });
     });
   }
 
@@ -133,20 +137,13 @@ export class UserDetailComponent {
       updatedUser.password = encryptPassword(updatedUser.password);
     }
 
-    this.userService.update(this.userId, updatedUser).subscribe(
-      (response) =>
+    this.userService
+      .update(this.userId, updatedUser)
+      .subscribe((response) =>
         this.notificationService.showCompossedSuccessNotification(
           'success.database.generic.user',
           { action: 'success.database.action.update' },
         ),
-      (error) =>
-        this.notificationService.showCompossedErrorNotification(
-          'error.database.generic.user',
-          {
-            action: 'error.database.action.update',
-            type: 'error.database.type.user',
-          },
-        ),
-    );
+      );
   }
 }

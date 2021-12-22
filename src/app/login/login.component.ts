@@ -48,19 +48,12 @@ export class LoginComponent {
 
   public login(): void {
     const loginUser: UserLoginDto = { ...this.formGroup.getRawValue() };
-    this.loginService.login(loginUser).subscribe(
-      (token) => {
-        let { accessToken } = token;
-        resetFrom(this.formGroup);
-        saveAccessToken(accessToken);
-        this.authService.accessToken = accessToken;
-        this.router.navigate([environment.url.components.users]);
-      },
-      (error) => {
-        this.notificationService.showCompossedErrorNotification(
-          'error.login.generic',
-        );
-      },
-    );
+    this.loginService.login(loginUser).subscribe((token) => {
+      let { accessToken } = token;
+      resetFrom(this.formGroup);
+      saveAccessToken(accessToken);
+      this.authService.accessToken = accessToken;
+      this.router.navigate([environment.url.components.users]);
+    });
   }
 }

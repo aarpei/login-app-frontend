@@ -2,14 +2,14 @@
  * Custom error to handle all CRUD exceptions
  * @param {string} status Error status
  * @param {string} message Template translation string to composs message
- * @param {string} action Crud action translation string to composs message
+ * @param {string} [action] Crud action translation string to composs message
  * @param {string} [type] Entity type translation string to composs message
  * @param {string} [propertieName] Propertie name to composs message
  * @param {string} [propertieValue] Propertie value to composs message
  */
 export class CrudException extends Error {
   public status: string;
-  public action: string;
+  public action?: string;
   public type?: string;
   public propertieName?: string;
   public propertieValue?: string;
@@ -18,7 +18,7 @@ export class CrudException extends Error {
   constructor(
     status: string,
     message: string,
-    action: string,
+    action?: string,
     type?: string,
     propertieName?: string,
     propertieValue?: string,

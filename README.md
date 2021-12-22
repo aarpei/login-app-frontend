@@ -8,7 +8,7 @@ It's a user manager app on you can **Login**, **Update**, **List** and **Delete*
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Requirments
+## Requirements
 
 - [Backend](https://github.com/aarpei/login-app-backend)
 - MySQL

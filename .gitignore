@@ -51,7 +51,7 @@ typings/
 .npm
 
 #Angular cache
-.angular/cache/
+.angular/
 
 # Optional eslint cache
 .eslintcache
@@ -172,7 +172,3 @@ typings/
 
 # macOS
 .DS_Store
-
-#Index
-index.pack
-index.pack.old

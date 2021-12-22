@@ -27,16 +27,16 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const accessToken = this.authService.accessToken;
 
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${accessToken}`,
+      'Accept-Language': 'es',
+    });
+
     let request = req;
 
     if (req.body?.password) {
       req.body.password = encryptPassword(req.body.password);
     }
-
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${accessToken}`,
-      'Accept-Language': 'es',
-    });
 
     if (accessToken) {
       request = req.clone({ headers });

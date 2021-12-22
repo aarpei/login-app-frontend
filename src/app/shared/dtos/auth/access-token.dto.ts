@@ -2,6 +2,6 @@
  * Class for represent an accessToken
  * @class
  */
-export class AccessToken {
+export class AccessTokenDto {
   accessToken: string = '';
 }

@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { CrudService } from '../shared/services/crud.service';
 
+/**
+ * Crud service for all user/ components
+ * @see {@link crud.service}
+ */
 @Injectable({
   providedIn: 'root',
 })

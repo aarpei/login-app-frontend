@@ -10,6 +10,9 @@ import { NotificationsService } from '../shared/services/notifications.service';
 import { resetFrom, saveAccessToken } from '../shared/Utils';
 import { LoginService } from './login.service';
 
+/**
+ * Main component on users can try login
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -40,6 +43,11 @@ export class LoginComponent {
     });
   }
 
+  /**
+   * Try login a user an if succes saves accessToken into sessionStorage and auth.service
+   * @see {@link auth.service}
+   * @see {@link utils} saveAccessToken
+   */
   public login(): void {
     const loginUser: UserLoginDto = { ...this.formGroup.getRawValue() };
     this.loginService.login(loginUser).subscribe((token) => {

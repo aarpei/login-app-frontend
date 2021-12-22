@@ -9,18 +9,21 @@ import {
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../service/auth.service';
-
+/**
+ * Guardian for check if user is logged else redirects
+ * @class
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
   constructor(
     private readonly authService: AuthService,
-    private readonly router: Router
+    private readonly router: Router,
   ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    state: RouterStateSnapshot,
   ):
     | boolean
     | UrlTree

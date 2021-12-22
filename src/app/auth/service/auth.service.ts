@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
 import { recoverAccessToken, removeAccessToken } from '../../shared/Utils';
 
+/**
+ * Authentication service handles user access token
+ * @class
+ */
 @Injectable()
 export class AuthService {
   private _accessToken?: string;
@@ -21,11 +24,11 @@ export class AuthService {
     this.accessToken = recoverAccessToken() ?? undefined;
   }
 
+  /**
+   * Verify if user is logged in
+   * @return {boolean} Access Token exists
+   */
   public userIsLogged(): boolean {
     return this.accessToken !== undefined;
-  }
-
-  public userIsLoggedObs(): Observable<boolean> {
-    return new Observable().pipe(map((data) => this.accessToken !== undefined));
   }
 }

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/auth/service/auth.service';
 
+/**
+ * Navbar component used to show menu
+ */
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',

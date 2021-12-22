@@ -8,13 +8,17 @@ import {
 import { Observable } from 'rxjs';
 import { AuthService } from '../service/auth.service';
 
+/**
+ * Guardian for check if user is logged in
+ * @class
+ */
 @Injectable()
 export class LoggedGuard implements CanActivate {
   constructor(private readonly authService: AuthService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    state: RouterStateSnapshot,
   ):
     | boolean
     | UrlTree

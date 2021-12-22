@@ -11,6 +11,10 @@ import { map, Observable } from 'rxjs';
 import { decryptPassword, encryptPassword } from 'src/app/shared/Utils';
 import { AuthService } from '../service/auth.service';
 
+/**
+ * Intercepts requests for add headers
+ * @class
+ */
 @Injectable({
   providedIn: 'root',
 })

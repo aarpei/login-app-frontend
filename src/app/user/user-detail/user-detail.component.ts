@@ -11,6 +11,9 @@ import { NotificationsService } from 'src/app/shared/services/notifications.serv
 import { encryptPassword } from 'src/app/shared/Utils';
 import { UserService } from '../user.service';
 
+/**
+ * Component to show user selected info and updated
+ */
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
@@ -58,6 +61,9 @@ export class UserDetailComponent {
     });
   }
 
+  /**
+   * Build form and fill it with user data recovered from db
+   */
   private buildForm() {
     this.emailInputControl = new FormControl(this.user?.email, [
       Validators.email,
@@ -85,10 +91,16 @@ export class UserDetailComponent {
     );
   }
 
+  /**
+   * Update user data in db with data changed in form
+   */
   public updateUser(): void {
     let updatedUser: any = new UpdateUserDto();
     updatedUser = { ...updatedUser, ...this.formGroup.getRawValue() };
 
+    /**
+     * Remove data not changed
+     */
     Object.keys(updatedUser).forEach((propertie) => {
       if (updatedUser[propertie] === this.originalUser[propertie]) {
         delete updatedUser[propertie];

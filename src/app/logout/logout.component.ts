@@ -11,11 +11,14 @@ import { AuthService } from '../auth/service/auth.service';
 export class LogoutComponent {
   constructor(
     private readonly router: Router,
-    private readonly authService: AuthService
+    private readonly authService: AuthService,
   ) {
     this.authService.accessToken = undefined;
   }
 
+  /**
+   * Navigate to login
+   */
   public returnToLogin(): void {
     this.router.navigate([environment.url.components.login]);
   }

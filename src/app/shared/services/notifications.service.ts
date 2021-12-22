@@ -17,6 +17,7 @@ enum snackBarClasses {
 })
 /**
  * Notify user actions completed or failed with snackbars
+ * @class
  */
 export class NotificationsService {
   constructor(
@@ -28,7 +29,6 @@ export class NotificationsService {
    * Open snackbar with message and color passed throw params
    * @param {string} message Message to show
    * @param {string} snackBarClass Class for the snackbar
-   * @function
    */
   private showNotification(message: string, snackBarClass: string): void {
     this.snackBar.open(message, '', {
@@ -41,7 +41,6 @@ export class NotificationsService {
    * Translate compossed message and calls show notification with succes class
    * @param {string} template Message template
    * @param {any} [variables] Template vars to composs message
-   * @function
    */
   public showCompossedSuccessNotification(
     template: string,
@@ -56,7 +55,6 @@ export class NotificationsService {
    * Translate compossed message and calls show notification with error class
    * @param {string} template Message template
    * @param {any} [variables] Template vars to composs message
-   * @function
    */
   public showCompossedErrorNotification(
     template: string,
@@ -71,7 +69,6 @@ export class NotificationsService {
    * Translate all object variables
    * @param {any} variables Variables to translate
    * @return {string} Translated variables
-   * @function
    */
   private translateVariables(variables: any): any {
     Object.keys(variables).forEach(

@@ -8,6 +8,9 @@ import { NotificationsService } from '../shared/services/notifications.service';
 import { resetFrom } from '../shared/Utils';
 import { UserService } from '../user/user.service';
 
+/**
+ * Allows user registration
+ */
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -49,6 +52,10 @@ export class SignUpComponent {
       surname: this.surnameInputControl,
     });
   }
+
+  /**
+   * Register user on db with data from form
+   */
   public signUp(): void {
     let newUser: CreateUserDto = new CreateUserDto();
     newUser = { ...newUser, ...this.formGroup.getRawValue() };

@@ -7,9 +7,14 @@ import { InputType } from '../enums/input-type.enum';
   providedIn: 'root',
 })
 /**
- * Notify user actions completed or failed with snackbars
+ * Service to get InputModels
+ * @see {@link input.model}
+ * @class
  */
 export class InputService {
+  /**
+   * @return {InputModel} name input model
+   */
   public getNameInput(formControl: FormControl): InputModel {
     return {
       type: InputType.TEXT,
@@ -18,6 +23,10 @@ export class InputService {
       formControl: formControl,
     };
   }
+
+  /**
+   * @return {InputModel} surname input model
+   */
   public getSurnameInput(formControl: FormControl): InputModel {
     return {
       type: InputType.TEXT,
@@ -26,6 +35,10 @@ export class InputService {
       formControl: formControl,
     };
   }
+
+  /**
+   * @return {InputModel} password input model
+   */
   public getPasswordInput(formControl: FormControl): InputModel {
     return {
       type: InputType.PASSWORD,
@@ -34,6 +47,10 @@ export class InputService {
       formControl: formControl,
     };
   }
+
+  /**
+   * @return {InputModel} email input model
+   */
   public getEmailInput(formControl: FormControl): InputModel {
     return {
       type: InputType.EMAIL,

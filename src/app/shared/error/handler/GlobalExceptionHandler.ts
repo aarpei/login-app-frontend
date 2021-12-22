@@ -19,7 +19,6 @@ export class GlobalExceptionHandler implements ErrorHandler {
 
   /**
    * Handles errors depending on its type
-   * @function
    */
   handleError(error: any): void {
     if (error?.status === HttpStatusCode.Unauthorized) {

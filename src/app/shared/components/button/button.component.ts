@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+/**
+ * Generic component to instanciate a button element
+ */
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',

@@ -43,6 +43,10 @@
     "user": "Usuarios",
     "logout": "Logout"
   },
+  "menu_language": {
+    "english": "Inglés",
+    "spanish": "Castellano"
+  },
   "login": {
     "title": "Login"
   },
@@ -73,9 +77,9 @@
   },
   "user_list": {
     "header": {
-      "name": "name",
-      "surname": "surname",
-      "email": "email"
+      "name": "nombre",
+      "surname": "apellido",
+      "email": "correo eléctronico"
     }
   }
 }

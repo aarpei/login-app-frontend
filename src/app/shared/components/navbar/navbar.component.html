@@ -26,4 +26,19 @@
       </mat-menu>
     </button>
   </button>
+  <button mat-button class="menu-language">
+    <button mat-button [matMenuTriggerFor]="menuLanguage">
+      <button mat-icon-button aria-label="icon-button with menu icon">
+        <mat-icon>language</mat-icon>
+      </button>
+      <mat-menu #menuLanguage="matMenu">
+        <button mat-menu-item (click)="setLanguage('es')">
+          {{ 'menu_language.spanish' | translate }}
+        </button>
+        <button mat-menu-item (click)="setLanguage('en')">
+          {{ 'menu_language.english' | translate }}
+        </button>
+      </mat-menu>
+    </button>
+  </button>
 </mat-toolbar>

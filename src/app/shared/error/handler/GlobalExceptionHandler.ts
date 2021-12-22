@@ -36,11 +36,15 @@ export class GlobalExceptionHandler implements ErrorHandler {
                 type: error.type,
               },
             )
-          : this.notificationService.showCompossedErrorNotification(
+          : error.action
+          ? this.notificationService.showCompossedErrorNotification(
               error.message,
               {
                 action: error.action,
               },
+            )
+          : this.notificationService.showCompossedErrorNotification(
+              error.message,
             );
         break;
       default:

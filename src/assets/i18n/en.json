@@ -1,0 +1,86 @@
+{
+  "button": {
+    "login": "Login",
+    "sign_up": "Sign Up",
+    "go_to_login": "Go to Login",
+    "update_user": "Update user"
+  },
+  "error": {
+    "database": {
+      "generic": "[ERROR]: error executing {{action}} for {{type}}",
+      "propertie": "[ERROR]: error executing {{action}} for {{type}} with {{propertie_name}} -> {{propertie_value}}",
+      "type": {
+        "user": "USER"
+      },
+      "action": {
+        "create": "CREATE",
+        "delete": "DELETE",
+        "get": "GET",
+        "update": "UPDATE"
+      }
+    },
+    "login": {
+      "generic": "[ERROR]: error login user"
+    }
+  },
+  "input": {
+    "label": {
+      "email": "Email address",
+      "password": "Password",
+      "name": "Name",
+      "search": "Search...",
+      "surname": "Surname"
+    },
+    "placeholder": {
+      "email": "Set email address",
+      "password": "Set password",
+      "name": "Set name",
+      "surname": "Set surname"
+    }
+  },
+  "menu": {
+    "login": "Login",
+    "sign_up": "Sign Up",
+    "user": "Users",
+    "logout": "Logout"
+  },
+  "menu_language": {
+    "english": "English",
+    "spanish": "Spanish"
+  },
+  "login": {
+    "title": "Login"
+  },
+  "sign_up": {
+    "title": "Sign Up"
+  },
+  "page_not_found": {
+    "title": "Page Not Found 404"
+  },
+  "logout": {
+    "title": "Session closed or expired"
+  },
+  "user_detail": {
+    "title": "User details"
+  },
+
+  "success": {
+    "database": {
+      "generic": {
+        "user": "User was {{action}} successfully!"
+      },
+      "action": {
+        "created": "created",
+        "delete": "deleted",
+        "update": "updated"
+      }
+    }
+  },
+  "user_list": {
+    "header": {
+      "name": "name",
+      "surname": "surname",
+      "email": "email"
+    }
+  }
+}

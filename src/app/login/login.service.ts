@@ -31,7 +31,7 @@ export class LoginService {
       .post<AccessTokenDto>(this.apiEndpointUrl, loginUser)
       .pipe(
         catchError((error) => {
-          throw new CrudException(error.status, 'error.login.generic', '');
+          throw new CrudException(error.status, 'error.login.generic');
         }),
       );
   }

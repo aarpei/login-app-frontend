@@ -23,7 +23,7 @@ export class UserListComponent {
     private readonly userService: UserService<GetUserDto>,
     private readonly router: Router,
   ) {
-    this.setUsersListMock();
+    this.setUsersList();
   }
 
   /**
@@ -52,15 +52,5 @@ export class UserListComponent {
     this.usersListObservable.subscribe(
       (usersList) => (this.usersList = usersList),
     );
-  }
-
-  private setUsersListMock(): void {
-    this.usersListObservable.subscribe((usersList) => {
-      for (var i = 0; i < 30; i++) {
-        console.log(usersList[0]);
-        this.usersList.push(usersList[0]);
-      }
-      console.log(this.usersList.length);
-    });
   }
 }

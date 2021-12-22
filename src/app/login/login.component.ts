@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/service/auth.service';
 import { InputModel } from '../shared/components/input/model/input.model';
 import { UserLoginDto } from '../shared/dtos/user/user-login.dto';
-import { InputType } from '../shared/enums/input-type.enum';
+import { InputService } from '../shared/services/input.service';
 import { NotificationsService } from '../shared/services/notifications.service';
 import { resetFrom, saveAccessToken } from '../shared/Utils';
 import { LoginService } from './login.service';
@@ -20,24 +20,18 @@ export class LoginComponent {
   public emailInputControl = new FormControl('', Validators.required);
   public passwordInputControl = new FormControl('', Validators.required);
 
-  public emailInputModel: InputModel = {
-    type: InputType.EMAIL,
-    label: 'input.label.email',
-    placeholder: 'input.placeholder.email',
-    formControl: this.emailInputControl,
-  };
-
-  public passwordInputModel: InputModel = {
-    type: InputType.PASSWORD,
-    label: 'input.label.password',
-    placeholder: 'input.placeholder.password',
-    formControl: this.passwordInputControl,
-  };
+  public emailInputModel: InputModel = this.inputService.getEmailInput(
+    this.emailInputControl,
+  );
+  public passwordInputModel: InputModel = this.inputService.getPasswordInput(
+    this.passwordInputControl,
+  );
 
   constructor(
     private readonly loginService: LoginService,
     private readonly notificationService: NotificationsService,
     private readonly authService: AuthService,
+    private readonly inputService: InputService,
     private router: Router,
   ) {
     this.formGroup = new FormGroup({

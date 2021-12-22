@@ -1,6 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { GetUserDto } from 'src/app/shared/dtos/user/user-get.dto';
 
+/**
+ * Generic component to show user data using a GetUserDto as data source
+ * @see {@link user-get.dto}
+ */
+
 @Component({
   selector: 'app-user-row',
   templateUrl: './user-row.component.html',
@@ -29,7 +34,6 @@ export class UserRowComponent {
     this.showEmmiter.emit(this.user.id);
   }
   public deleteUser(): void {
-    console.log('DELETE');
     this.deleteEmmiter.emit(this.user.id);
   }
 }

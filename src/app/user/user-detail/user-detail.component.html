@@ -1,21 +1,25 @@
 <div class="container">
   <form [formGroup]="formGroup" (ngSubmit)="updateUser()">
     <app-input
+      *ngIf="nameInputModel"
       [inputModel]="nameInputModel"
       class="row"
       ngDefaultControl
     ></app-input>
     <app-input
+      *ngIf="surnameInputModel"
       [inputModel]="surnameInputModel"
       class="row"
       ngDefaultControl
     ></app-input>
     <app-input
+      *ngIf="emailInputModel"
       [inputModel]="emailInputModel"
       class="row"
       ngDefaultControl
     ></app-input>
     <app-input
+      *ngIf="passwordInputModel"
       [inputModel]="passwordInputModel"
       class="row"
       ngDefaultControl

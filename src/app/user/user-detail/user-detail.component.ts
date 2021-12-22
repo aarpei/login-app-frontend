@@ -5,8 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { catchError } from 'rxjs';
 import { InputModel } from 'src/app/shared/components/input/model/input.model';
 import { UpdateUserDto } from 'src/app/shared/dtos/user/user-update.dto';
-import { InputType } from 'src/app/shared/enums/input-type.enum';
 import { User } from 'src/app/shared/inteface/user.model';
+import { InputService } from 'src/app/shared/services/input.service';
 import { NotificationsService } from 'src/app/shared/services/notifications.service';
 import { encryptPassword } from 'src/app/shared/Utils';
 import { UserService } from '../user.service';
@@ -28,33 +28,14 @@ export class UserDetailComponent {
   public nameInputControl?: FormControl;
   public surnameInputControl?: FormControl;
 
-  public emailInputModel: InputModel = {
-    type: '',
-    label: '',
-    placeholder: '',
-    formControl: new FormControl(),
-  };
-  public passwordInputModel: InputModel = {
-    type: '',
-    label: '',
-    placeholder: '',
-    formControl: new FormControl(),
-  };
-  public nameInputModel: InputModel = {
-    type: '',
-    label: '',
-    placeholder: '',
-    formControl: new FormControl(),
-  };
-  public surnameInputModel: InputModel = {
-    type: '',
-    label: '',
-    placeholder: '',
-    formControl: new FormControl(),
-  };
+  public emailInputModel?: InputModel;
+  public passwordInputModel?: InputModel;
+  public nameInputModel?: InputModel;
+  public surnameInputModel?: InputModel;
 
   constructor(
     private readonly userService: UserService<User>,
+    private readonly inputService: InputService,
     private readonly route: ActivatedRoute,
     private readonly location: Location,
     private readonly notificationService: NotificationsService,
@@ -92,33 +73,16 @@ export class UserDetailComponent {
       surname: this.surnameInputControl,
     });
 
-    this.emailInputModel = {
-      type: InputType.EMAIL,
-      label: 'input.label.email',
-      placeholder: 'input.placeholder.email',
-      formControl: this.emailInputControl,
-    };
-
-    this.passwordInputModel = {
-      type: InputType.PASSWORD,
-      label: 'input.label.password',
-      placeholder: 'input.placeholder.password',
-      formControl: this.passwordInputControl,
-    };
-
-    this.nameInputModel = {
-      type: InputType.TEXT,
-      label: 'input.label.name',
-      placeholder: 'input.placeholder.name',
-      formControl: this.nameInputControl,
-    };
-
-    this.surnameInputModel = {
-      type: InputType.TEXT,
-      label: 'input.label.surname',
-      placeholder: 'input.placeholder.surname',
-      formControl: this.surnameInputControl,
-    };
+    this.emailInputModel = this.inputService.getEmailInput(
+      this.emailInputControl,
+    );
+    this.passwordInputModel = this.inputService.getPasswordInput(
+      this.passwordInputControl,
+    );
+    this.nameInputModel = this.inputService.getNameInput(this.nameInputControl);
+    this.surnameInputModel = this.inputService.getSurnameInput(
+      this.surnameInputControl,
+    );
   }
 
   public updateUser(): void {

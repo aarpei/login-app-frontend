@@ -111,7 +111,6 @@ export class UserDetailComponent {
     } else {
       updatedUser.password = encrypt(updatedUser.password);
     }
-    console.log(updatedUser);
 
     this.userService
       .update(this.userId, updatedUser)

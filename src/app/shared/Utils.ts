@@ -19,7 +19,9 @@ export const resetFrom = (formGroup: FormGroup) => {
  * @return {string} accessToken from sessionStorage if exists
  */
 export const recoverAccessToken = (): string | null => {
-  return sessionStorage.getItem('accessToken');
+  let accessToken = sessionStorage.getItem('accessToken');
+  accessToken = accessToken ? decrypt(accessToken) : accessToken;
+  return accessToken;
 };
 
 /**
@@ -27,6 +29,7 @@ export const recoverAccessToken = (): string | null => {
  * @param {string} accessToken
  */
 export const saveAccessToken = (accessToken: string): void => {
+  accessToken = encrypt(accessToken);
   sessionStorage.setItem('accessToken', accessToken);
 };
 
@@ -39,24 +42,24 @@ export const removeAccessToken = (): void => {
 
 /**
  * Encrypt an string
- * @param {string} password String to encrypt
+ * @param {string} toEncrypt String to encrypt
  * @return {string} String encrypted
  */
-export const encryptPassword = (password: string): string => {
+export const encrypt = (toEncrypt: string): string => {
   return CryptoJS.AES.encrypt(
-    password.trim(),
+    toEncrypt.trim(),
     environment.encoder.password.trim(),
   ).toString();
 };
 
 /**
  * Decrypt an string
- * @param {string} password String to decrypted
+ * @param {string} toDecrypt String to decrypted
  * @return {string} String decrypted
  */
-export const decryptPassword = (password: string): string => {
+export const decrypt = (toDecrypt: string): string => {
   return CryptoJS.AES.decrypt(
-    password.trim(),
+    toDecrypt.trim(),
     environment.encoder.password.trim(),
   ).toString(CryptoJS.enc.Utf8);
 };

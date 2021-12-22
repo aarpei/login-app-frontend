@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container wrapper">
+  <p class="form-title">{{ 'user_detail.title' | translate }}</p>
   <form [formGroup]="formGroup" (ngSubmit)="updateUser()">
     <app-input
       *ngIf="nameInputModel"

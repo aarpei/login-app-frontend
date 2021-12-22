@@ -55,6 +55,10 @@
   "logout": {
     "title": "Has cerrado la sesión o ha caducado"
   },
+  "user_detail": {
+    "title": "Detalles del usuario"
+  },
+
   "success": {
     "database": {
       "generic": {

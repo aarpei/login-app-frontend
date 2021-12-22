@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./colors.scss";
+@import './colors.scss';
 html,
 body {
   height: 100%;
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 html,
@@ -15,7 +15,7 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
 .main-wrapper {
@@ -38,6 +38,19 @@ body {
   padding: 0.5rem;
 }
 
+.col {
+  padding: 0;
+}
+
+.wrapper {
+  display: block;
+  padding: 2rem;
+  background-color: $color-light-blue;
+  border: 0.2rem solid $color-orange;
+  box-shadow: 0.6rem 0.5rem $color-light-orange;
+  border-radius: 1rem;
+}
+
 /* SNACKBAR */
 .warning-snackbar {
   background: $color-yellow;
@@ -50,8 +63,4 @@ body {
 .error-snackbar {
   background: $color-red;
   color: $color-white;
-}
-
-.col {
-  padding: 0;
 }

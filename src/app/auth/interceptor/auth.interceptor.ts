@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { decryptPassword, encryptPassword } from 'src/app/shared/Utils';
+import { decrypt, encrypt } from 'src/app/shared/Utils';
 import { AuthService } from '../service/auth.service';
 
 /**
@@ -35,7 +35,7 @@ export class AuthInterceptor implements HttpInterceptor {
     let request = req;
 
     if (req.body?.password) {
-      req.body.password = encryptPassword(req.body.password);
+      req.body.password = encrypt(req.body.password);
     }
 
     if (accessToken) {
@@ -45,7 +45,7 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       map((req) => {
         if (req instanceof HttpResponse && req.body?.password) {
-          req.body.password = decryptPassword(req.body.password);
+          req.body.password = decrypt(req.body.password);
         }
         return req;
       }),

@@ -7,8 +7,17 @@ mat-icon {
 .logout {
   font-size: 3rem;
   margin-top: 1rem;
+  &--button {
+    justify-content: center;
+    app-button {
+      margin-top: 1rem;
+    }
+  }
+  &--button.row > * {
+    width: auto;
+  }
 }
 
-app-button {
-  margin-top: 1rem;
+.row {
+  margin: 0;
 }

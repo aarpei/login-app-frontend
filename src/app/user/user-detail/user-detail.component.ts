@@ -8,7 +8,7 @@ import { UpdateUserDto } from 'src/app/shared/dtos/user/user-update.dto';
 import { User } from 'src/app/shared/inteface/user.model';
 import { InputService } from 'src/app/shared/services/input.service';
 import { NotificationsService } from 'src/app/shared/services/notifications.service';
-import { encryptPassword } from 'src/app/shared/Utils';
+import { encrypt } from 'src/app/shared/Utils';
 import { UserService } from '../user.service';
 
 /**
@@ -110,7 +110,7 @@ export class UserDetailComponent {
     if (!updatedUser.password) {
       delete updatedUser.password;
     } else {
-      updatedUser.password = encryptPassword(updatedUser.password);
+      updatedUser.password = encrypt(updatedUser.password);
     }
 
     this.userService

@@ -29,7 +29,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     const headers = new HttpHeaders({
       Authorization: `Bearer ${accessToken}`,
-      'Accept-Language': 'es',
+      'Accept-Language': this.authService.appLanguage,
     });
 
     let request = req;

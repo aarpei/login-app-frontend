@@ -22,5 +22,6 @@ export class NavbarComponent {
 
   public setLanguage(language: string): void {
     this.translateService.setDefaultLang(language);
+    this.authService.appLanguage = language;
   }
 }

@@ -8,6 +8,7 @@ import { recoverAccessToken, removeAccessToken } from '../../shared/Utils';
 @Injectable()
 export class AuthService {
   private _accessToken?: string;
+  private _appLanguage: string = 'es';
 
   public set accessToken(accessToken: string | undefined) {
     if (!accessToken) {
@@ -30,5 +31,12 @@ export class AuthService {
    */
   public userIsLogged(): boolean {
     return this.accessToken !== undefined;
+  }
+
+  public set appLanguage(language: string) {
+    this._appLanguage = language;
+  }
+  public get appLanguage(): string {
+    return this._appLanguage;
   }
 }

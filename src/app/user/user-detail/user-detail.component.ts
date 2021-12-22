@@ -106,12 +106,12 @@ export class UserDetailComponent {
         delete updatedUser[propertie];
       }
     });
-
     if (!updatedUser.password) {
       delete updatedUser.password;
     } else {
       updatedUser.password = encrypt(updatedUser.password);
     }
+    console.log(updatedUser);
 
     this.userService
       .update(this.userId, updatedUser)

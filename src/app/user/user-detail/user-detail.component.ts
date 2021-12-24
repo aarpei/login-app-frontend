@@ -102,13 +102,14 @@ export class UserDetailComponent {
      * Remove data not changed
      */
     Object.keys(updatedUser).forEach((propertie) => {
-      if (updatedUser[propertie] === this.originalUser[propertie]) {
+      if (
+        updatedUser[propertie] === this.originalUser[propertie] ||
+        updatedUser[propertie] === ''
+      ) {
         delete updatedUser[propertie];
       }
     });
-    if (!updatedUser.password) {
-      delete updatedUser.password;
-    } else {
+    if (updatedUser.password) {
       updatedUser.password = encrypt(updatedUser.password);
     }
 

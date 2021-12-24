@@ -28,6 +28,7 @@
       "email": "Correo eléctronico",
       "password": "Contraseña",
       "name": "Nombre",
+      "search": "Buscar...",
       "surname": "Apellido"
     },
     "placeholder": {

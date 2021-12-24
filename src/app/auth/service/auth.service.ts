@@ -21,6 +21,14 @@ export class AuthService {
     return this._accessToken;
   }
 
+  public set appLanguage(language: string) {
+    this._appLanguage = language;
+  }
+
+  public get appLanguage(): string {
+    return this._appLanguage;
+  }
+
   constructor() {
     this.accessToken = recoverAccessToken() ?? undefined;
   }
@@ -31,12 +39,5 @@ export class AuthService {
    */
   public userIsLogged(): boolean {
     return this.accessToken !== undefined;
-  }
-
-  public set appLanguage(language: string) {
-    this._appLanguage = language;
-  }
-  public get appLanguage(): string {
-    return this._appLanguage;
   }
 }
